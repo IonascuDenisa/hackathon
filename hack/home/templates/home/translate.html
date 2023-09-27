@@ -1,16 +1,21 @@
 <!-- home/templates/home/translate.html -->
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Translation</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'main.css' %}">
 </head>
+
 <body>
-    <h1>Translation</h1>
+    <h3>Translation</h3>
     <form action="{% url 'translate_to_french' %}" method="post">
         {% csrf_token %}
-        <label for="input_text">Enter text:</label>
-        <input type="text" id="input_text" name="input_text" placeholder="Enter text" required>
-        <button type="submit">Translate to French</button>
+        <input type="text" name="input_text" placeholder="Enter text" required />
+        <input type="submit" value="Translate to French" />
     </form>
     {% if translation_result %}
     <div class="result">
@@ -20,4 +25,5 @@
     {% endif %}
     <p><a href="{% url 'home' %}">Back to Home</a></p>
 </body>
+
 </html>
