@@ -1,0 +1,23 @@
+<!-- home/templates/home/translate.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Translation</title>
+</head>
+<body>
+    <h1>Translation</h1>
+    <form action="{% url 'translate_to_french' %}" method="post">
+        {% csrf_token %}
+        <label for="input_text">Enter text:</label>
+        <input type="text" id="input_text" name="input_text" placeholder="Enter text" required>
+        <button type="submit">Translate to French</button>
+    </form>
+    {% if translation_result %}
+    <div class="result">
+        <h4>Translation Result:</h4>
+        <p>{{ translation_result }}</p>
+    </div>
+    {% endif %}
+    <p><a href="{% url 'home' %}">Back to Home</a></p>
+</body>
+</html>
