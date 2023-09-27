@@ -7,12 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simple Django Project</title>
     {% load static %}
-    <link rel="stylesheet" href="{% static 'main.css' %}">
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
 </head>
 
 <body>
     <div>
-        <h1>Welcome to my Django project</h1>
+        <h1>Let's hack the hackaton!</h1>
         <h3>Translation</h3>
         <form action="{% url 'translate_to_french' %}" method="post">
             {% csrf_token %}
